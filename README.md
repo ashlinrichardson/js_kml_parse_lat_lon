@@ -11,3 +11,6 @@ open the html file in a browser, and select the KML file..
 .. latitude and longitude will appear in console.log
 
 ![screenshot](screen.png)
+
+## kml.html
+![kml.html](code.png)
