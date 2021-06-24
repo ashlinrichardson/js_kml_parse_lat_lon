@@ -5,4 +5,4 @@ Simple example of parsing lat / lon out of a KML file.. From JavaScript
 Download both files, open the html file in a browser, and select the KML file.. 
 .. latitude and longitude will appear in console.log
 
-
+![screenshot](screen.png)
