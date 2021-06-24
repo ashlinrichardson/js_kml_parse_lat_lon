@@ -1,0 +1,32 @@
+<html>
+<input type="file" onchange="loadFile(this.files[0])">
+<script>
+  /* example of parsing lat/long data out of an XML file.. */
+  async function loadFile(file) {
+    let text = await(new Response(file)).text();  // console.log(text);
+
+    parser = new DOMParser() // xml parser
+    xmlDoc = parser.parseFromString(text,"text/xml")
+
+    lat = xmlDoc.getElementsByTagName("latitude")
+    lon = xmlDoc.getElementsByTagName("longitude")
+
+    var N = lat.length
+    if(N != lon.length) alert("different number of lat / long.. bad news")
+
+    function val(x){
+      return x.childNodes[0].nodeValue
+    }
+
+    for(var i = 0; i < N; i++){
+        console.log(i,
+                    val(lat[i]),
+                    val(lon[i]),
+                    lat[i].parentNode.parentNode.getElementsByTagName('name')[0])
+      /* text for the data point was a level up..
+        .. I found it by looking at console.log(text) above.. */
+    }
+
+}
+</script>
+</html>
